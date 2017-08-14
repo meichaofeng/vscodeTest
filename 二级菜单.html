@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			margin:0px;
+			padding:0px;
+			font-size:12px/1.5em;
+			font-family:微软雅黑;
+		}
+		ul{
+			margin:0px;
+			padding:0px;
+			list-style:none;
+		}
+		ul li a{
+			display:block;
+			padding:5px;
+			color:#fff;
+			text-decoration: none;
+			text-align:center;
+		}
+		ul li{
+			background:#ccc;
+			width:150px;
+			border-bottom:1px solid #fff;
+		}
+		#first{
+			/*position:relative;*/
+		}
+		#first ul{
+			position:absolute;
+			top:0px;
+			left:150px;
+		}
+		#first li{
+			position:relative;
+		}
+		#first a:hover{
+			background:#090;
+		}
+		#first ul a:hover{
+			background: #0f0;
+		}
+		.second{
+			display:none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var first=document.getElementById("first");
+			first.children[3].onmouseover=function(){
+			this.children[1].style.display="block";
+			};	
+			var first=document.getElementById("first");
+			first.children[3].onmouseout=function(){
+			this.children[1].style.display="none";
+			};	
+		};
+	</script>
+</head>
+<body>
+	<div>
+		<ul id="first">
+			<li><a href="#">关于我们</a></li>
+			<li><a href="#">企业文化</a></li>
+			<li><a href="#">联系我们</a></li>
+			<li><a href="#">产品介绍</a>
+				<ul class="second">
+					<li><a href="#">手机</a></li>
+					<li><a href="#">笔记本</a></li>
+					<li><a href="#">电脑</a></li>
+					<li><a href="#">数码相机</a></li>
+					<li><a href="#">移动硬盘</a></li>
+					<li><a href="#">平板电脑</a></li>
+					<li><a href="#">电子书</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

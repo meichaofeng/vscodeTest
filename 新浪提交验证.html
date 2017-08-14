@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		span{
+			font-size:14px;
+			color:#666;
+		}
+		span.red{
+			color:#f00;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var t1=document.getElementById("t1");
+			var tips=document.getElementById("tips");
+			var bt=document.getElementById("bt");
+			t1.onkeyup=t1.onkeydown=function(){
+				if(this.value.length<=140){
+					tips.innerHTML="您还可以输入"+(140-this.value.length)+"个字";
+					t1.style.background="";
+					bt.onclick=function(){
+						t1.style.background="";
+					};
+				}else{
+					tips.innerHTML="您已超出<span class='red'>"+(this.value.length-140)+"</span>个字";
+					bt.onclick=function(){
+					var i=1;
+					var sid=setInterval(function(){
+						switch(i++){
+						case 1:
+						t1.style.background="#900";
+						break;
+						case 2:
+						t1.style.background="#090";
+						break;
+						case 3:
+						t1.style.background="#990";
+						break;
+					}
+					},500)
+					if(i==3){
+						clearInterval(sid);
+					}
+				}
+				}
+			};
+		};
+	</script>
+</head>
+<body>
+	<textarea type="text" id="t1" cols="50" rows="10"></textarea>
+	<span id="tips">还可以输入140字</span>
+	<input type="button" id="bt" value="提交">
+</body>
+</html>
